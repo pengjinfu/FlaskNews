@@ -2,6 +2,7 @@
 # -*- coding:utf-8 -*-
 # Author:Dreamer
 # Time:2018.6.1
+import logging
 from redis import StrictRedis
 # 定义配置类
 class Config(object):
@@ -45,11 +46,15 @@ class Config(object):
 class DevelopmentConfig(Config):
     """开发模式下的配置"""
     DEBUG = True
-
+    # 设置日志级别
+    LOG_LEVEL = logging.DEBUG
 
 class ProductionConfig(Config):
     """生产模式下的配置"""
     DEBUG = False
+
+    # 设置日志级别
+    LOG_LEVEL = logging.WARNING
 
 
 # 使用方式： config_dict["development"]
