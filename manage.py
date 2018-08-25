@@ -19,5 +19,6 @@ def index():
 
 
 if __name__ == '__main__':
+    # python manage.py runserver -p -h
     manager.run()
 
