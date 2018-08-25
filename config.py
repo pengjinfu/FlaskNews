@@ -2,7 +2,6 @@
 # -*- coding:utf-8 -*-
 # Author:Dreamer
 # Time:2018.6.1
-
 from redis import StrictRedis
 # 定义配置类
 class Config(object):
