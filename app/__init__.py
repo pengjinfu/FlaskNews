@@ -73,6 +73,12 @@ def create_app(config_name):
     # 6.创建session拓展类的对象(将session的存储调整到redis中)
     Session(app)
 
+    # 首页蓝图
+    # 3.使用蓝图
+    from app.modules.index import index_bp
+    # 把首页蓝图注册到app里
+    app.register_blueprint(index_bp)
+
     return app
 
 

@@ -27,13 +27,14 @@ def index():
 
 if __name__ == '__main__':
 
-    logging.debug("debug的日志信息")
-    logging.info("info的日志信息")
-    logging.warning("warning的日志信息")
-    logging.error("error的日志信息")
-    logging.critical("critical的日志信息")
+    # logging.debug("debug的日志信息")
+    # logging.info("info的日志信息")
+    # logging.warning("warning的日志信息")
+    # logging.error("error的日志信息")
+    # logging.critical("critical的日志信息")
 
     # # 在 Flask框架 中，其自己对 Python 的 logging 进行了封装，在 Flask 应用程序中，可以以如下方式进行输出 log:
     # current_app.logger.info("使用flask封住好的方法 info的日志信息")
+
     # python manage.py runserver -p -h
     manager.run()
