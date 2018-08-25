@@ -6,6 +6,15 @@ from flask import Flask
 
 
 
+
+# 定义配置类
+class Config(object):
+    """工程配置类"""
+    # 开启debug模式
+    DEBUG = True
+
+
+
 app = Flask(__name__)
 
 
