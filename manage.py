@@ -6,6 +6,7 @@ import redis
 from redis import StrictRedis
 from flask import Flask
 
+from flask_wtf.csrf import CSRFProtect
 import pymysql
 pymysql.install_as_MySQLdb()
 from flask_sqlalchemy import SQLAlchemy
@@ -45,6 +46,11 @@ app.config.from_object(Config)
 db = SQLAlchemy(app)
 # 4.创建redis对象
 redis_store = redis.StrictRedis(host=Config.REDIS_HOST, port=Config.REDIS_PORT,db=Config.REDIS_NUM)
+# 5. 开启csrf后端保护验证机制
+# 提取cookie中的csrf_token和ajax请求头里面csrf_token进行比较验证操作
+csrf = CSRFProtect(app)
+
+
 
 @app.route('/')
 def index():
