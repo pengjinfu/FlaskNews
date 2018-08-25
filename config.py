@@ -40,3 +40,13 @@ class Config(object):
     SESSION_PERMANENT = False
     # 默认存储的有效时长 （没有调整之前默认值是timedelta(days=31)）
     PERMANENT_SESSION_LIFETIME = 86400 * 2
+
+
+class DevelopementConfig(Config):
+    """开发模式下的配置"""
+    DEBUG = True
+
+
+class ProductionConfig(Config):
+    """生产模式下的配置"""
+    DEBUG = False
