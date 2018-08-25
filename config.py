@@ -42,7 +42,7 @@ class Config(object):
     PERMANENT_SESSION_LIFETIME = 86400 * 2
 
 
-class DevelopementConfig(Config):
+class DevelopmentConfig(Config):
     """开发模式下的配置"""
     DEBUG = True
 
@@ -50,3 +50,11 @@ class DevelopementConfig(Config):
 class ProductionConfig(Config):
     """生产模式下的配置"""
     DEBUG = False
+
+
+# 使用方式： config_dict["development"]
+# 暴露一个借口给外界调用
+config_dict ={
+    "development": DevelopmentConfig,
+    "production": ProductionConfig
+}
