@@ -9,10 +9,14 @@ from flask import Flask
 from flask_session import Session
 
 from flask_wtf.csrf import CSRFProtect
+
 import pymysql
 pymysql.install_as_MySQLdb()
+
 from flask_sqlalchemy import SQLAlchemy
 
+from flask_script import Manager
+from flask_migrate import Migrate, MigrateCommand
 
 # 定义配置类
 class Config(object):
@@ -37,7 +41,7 @@ class Config(object):
     REDIS_NUM  = 1
 
     # 设置加密字符串
-    SECRET_KEY ="/W73UULUS4UFO5omviuVZz6+Bcjs5+2nRdvmyYNq1wEryZsMeluALSDGxGnuYoKX""
+    SECRET_KEY ="/W73UULUS4UFO5omviuVZz6+Bcjs5+2nRdvmyYNq1wEryZsMeluALSDGxGnuYoKX"
     # 调整session存储的位置（存储到redis里）
     # 以下的配置均可在Session的源码看到，或者可以找到官网查询
 
@@ -70,6 +74,12 @@ csrf = CSRFProtect(app)   # session不由表单携带而是放在redis数据库�
 # 6.创建session拓展类的对象(将session的存储调整到redis中)
 Session(app)
 
+# 7. 创建manager管理类
+manager = Manager(app)
+# 初始化迁移对象
+Migrate(app, db)
+# 将迁移命令添加到管理对象中
+manager.add_command("db", MigrateCommand)
 
 @app.route('/')
 def index():
