@@ -2,6 +2,8 @@
 # -*- coding:utf-8 -*-
 # Author:Dreamer
 # Time:2018.6.1
+import redis
+from redis import StrictRedis
 from flask import Flask
 
 import pymysql
@@ -23,12 +25,26 @@ class Config(object):
     # 关闭数据库的跟踪模式
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
+    # 设置redis数据库
+    # 设置redis的主机地址
+    REDIS_HOST = "127.0.0.1"
+    # 设置redis的端口
+    REDIS_PORT= 6379
+    # 设置redis使用哪个空间
+    REDIS_NUM  = 1
 
 
 
+
+
+# 1.创建flask对错
 app = Flask(__name__)
+# 2.把配置类注册到app里
 app.config.from_object(Config)
-
+# 3.创建mysql数据库对象
+db = SQLAlchemy(app)
+# 4.创建redis对象
+redis_store = redis.StrictRedis(host=Config.REDIS_HOST, port=Config.REDIS_PORT,db=Config.REDIS_NUM)
 
 @app.route('/')
 def index():
