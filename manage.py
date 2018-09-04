@@ -2,7 +2,6 @@
 # -*- coding:utf-8 -*-
 # Author:Dreamer
 # Time:2018.6.1
-
 from flask_script import Manager
 from app import create_app, db
 from flask_migrate import Migrate, MigrateCommand
