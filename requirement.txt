@@ -71,7 +71,7 @@ parsel==1.5.0
 pdfkit==0.6.1
 pexpect==4.0.1
 pickleshare==0.7.4
-Pillow==3.1.2
+Pillow==9.0.1
 plainbox==0.25
 prettytable==0.7.2
 prompt-toolkit==1.0.13
