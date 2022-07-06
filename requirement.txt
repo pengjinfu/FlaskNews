@@ -40,7 +40,7 @@ Flask-WTF==0.14.2
 gevent==1.2.1
 greenlet==0.4.12
 guacamole==0.9.2
-html5lib==0.999
+html5lib==0.999999999
 httplib2==0.9.1
 hyperlink==18.0.0
 idna==2.7
